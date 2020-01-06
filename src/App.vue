@@ -6,7 +6,7 @@
 
     <character-list :characters="characters"/>
     <character-details :character="selectedCharacter"/>
-    <h1>Favorite</h1>
+    <h1>Favorite </h1>
      <character-list :characters="favouriteCharacter"/>
   </div>
 
@@ -26,9 +26,9 @@ export default {
    }
  },
   mounted() {
-    fetch('https://api.punkapi.com/v2/beers')
+    fetch('https://swapi.co/api/people/')
     .then(res => res.json())
-    .then(characters => this.characters = characters)
+    .then(characters => this.characters = characters.results)
 
     eventBus.$on('select-beer', (beer) => {
          this.selectedBeer = beer
